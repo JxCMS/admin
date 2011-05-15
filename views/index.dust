@@ -1,0 +1,17 @@
+<div id="page-container">
+
+    <div id="menubar">
+        <a href="/" id="site" title="Go to site" target="_blank">{#setting key="site.title"/}</a>
+        <div id="controls"><span id="username">Welcome, {username}</span>|<a href="{logout_link}">Logout</a></div>
+        <div id="menu-container">
+        </div>
+    </div>
+
+    <div id="page">
+    </div>
+
+    <div id="footer">
+        <p>The footer will go here....</p>
+    </div>
+
+</div>
