@@ -3,8 +3,14 @@
  * area of any domain/subdomain in the system
  */
 
+/**
+ * Dependencies
+ */
+var routes = require('./controllers/admin').routes;
 
-
-exports.init = function(db,router) {
+exports.init = function(router,domain,opt) {
+    //setup routing
+    router.add(routes);
     return true;
-}
+};
+
