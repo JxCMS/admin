@@ -6,32 +6,33 @@
  * Dependencies
  */
 
-var Controller_Main = require('../../../system/controller').Controller_Main;
+var Controller_Main = require('../../../system/controller').Controller_Main,
+    Promise = require('promise').Promise;
 
 
 (function(){
 
-    exports = new Class({
+    var Controller = exports.Controller = new (new Class({
 
         Extends: Controller_Main,
-
-
-        before: function(){
-
-        },
-
-        after: function(){
-
+        
+        after: function(request, response){
+            response.view.set('layout','admin');
+            return this.parent(request,response);
         },
 
         index_action: function() {
-            
+           var p = new Promise();
+           
+           p.resolve('');
+           return p;
         }
 
-    });
+    }))();
 
     exports.routes = [
-        ['loader','GET /admin/(\\w+)/(\\d+)$', ['action','id'], ['admin/controllers/admin','index']]
+        //name, 'method regex', regex match keys, controller object, key defaults
+        ['admin','GET \\/admin(\\/(\\w+))?(\\/(\\d+))?$', ['action','id'], Controller,{action: 'index', id: -1}]
     ]
 
 })();
